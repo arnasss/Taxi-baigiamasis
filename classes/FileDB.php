@@ -5,6 +5,7 @@ require 'functions/file.php';
 class FileDB {
 
     private $file_name;
+    /** @var array Duomenu masyvas */
     private $data;
 
     public function __construct($file_name) {
@@ -12,7 +13,14 @@ class FileDB {
     }
     
     public function load() {
-        $array = file_to_array($this -> file_name);
-        return $array;
+        $this->data = file_to_array($this->file_name);
+    }
+    
+    public function  setData($data_array) {
+        $this->data = $data_array;
+    }
+    
+    public function save() {
+        array_to_file($this->data, $this->file_name);
     }
 }
