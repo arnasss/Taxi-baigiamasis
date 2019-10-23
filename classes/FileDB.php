@@ -56,7 +56,12 @@ class FileDB {
     public function dropTable($table_name) {
         unset($this->data[$table_name]);
     }
+    
+    public function truncateTable($table_name) {
+        if ((isset($this->data[$table_name]))) {
+            $this->data[$table_name] = [];
+            return true;
+        }
+        return false;
+    }
 }
-
-
-
