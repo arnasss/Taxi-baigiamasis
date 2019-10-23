@@ -6,7 +6,6 @@ class FileDB {
 
     private $file_name;
     private $data;
-    private $table_name;
     
 
     public function __construct($file_name) {
@@ -39,11 +38,24 @@ class FileDB {
         $this->data[$table][$row_id] = $this->row;
     }
     
-    public function createTable($table_name) {
-        if (!isset($table_name)) {
-            $this->table_name = $table_name[];
+    public function tableExists($table_name) {
+        if (isset($this->data[$table_name])){
+            return true;
         }
+        return false;
     }
+    
+    public function createTable($table_name) {
+         if (tableExists($table_name)) {
+            $this->data[$table_name] = [];
+            return true;
+        }
+        return false;
+    }
+    
+    
+    
+    
 }
 
 
