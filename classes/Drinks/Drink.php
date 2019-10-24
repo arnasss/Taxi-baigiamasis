@@ -1,17 +1,14 @@
 <?php
 
 class drink {
-    private $name;
-    private $amount_ml;
-    private $abarot;
-    private $image;
+    private $data;
     
     public function getName() {
         return $this->name;
     }
     
     public function setName(string $name) {
-        $this->name = $name;
+        $this->data['name'] = $name;
     }
     
     public function getAmount_ml() {
@@ -19,7 +16,7 @@ class drink {
     }
     
     public function setAmount_ml(int $amount_ml) {
-        $this->amount_ml = $amount_ml;
+        $this->data['amount_ml'] = $amount_ml;
     }
     
     public function getAbarot() {
@@ -27,7 +24,7 @@ class drink {
     }
     
     public function setAbarot(float $abarot) {
-        $this->abarot = $abarot;
+        $this->data['abarot'] = $abarot;
     }
     
     public function getImage() {
@@ -35,7 +32,7 @@ class drink {
     }
     
     public function setImage(string $image) {
-        $this->image = $image;
+        $this->data['image'] = $image;
     }
     
 }
