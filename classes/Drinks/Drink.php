@@ -35,7 +35,7 @@ class drink {
     }
     
     public function setImage(string $url) {
-        $this->data['image'] = $image;
+        $this->data['image'] = $url;
     }
     
 }
