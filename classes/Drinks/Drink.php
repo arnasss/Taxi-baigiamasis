@@ -1,7 +1,11 @@
 <?php
 
+declare (strict_types = 1);
+
 class drink {
     private $data;
+    
+    
     
     public function getName() {
         return $this->data['name'];
