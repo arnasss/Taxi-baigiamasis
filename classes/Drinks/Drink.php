@@ -2,7 +2,7 @@
 
 declare (strict_types = 1);
 
-class drink {
+class Drink {
     
     private $data;
     
@@ -38,4 +38,21 @@ class drink {
         $this->data['image'] = $url;
     }
     
+    public function getData() {
+        return $array = [
+            'name' => $this->getName(),
+            'amount_ml' => $this->getAmount(),
+            'abarot' => $this->getAbarot(),
+            'image' => $this->getImage()
+        ];
+    }
+    
 }
+
+$drink = new Drink();
+$drink->setName('jonas');
+$drink->setAmount(80);
+$drink->setAbarot(40);
+$drink->setImage('www.google.lt');
+$drink->getData();
+var_dump($drink->getData());
