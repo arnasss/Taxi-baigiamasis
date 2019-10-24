@@ -3,9 +3,8 @@
 declare (strict_types = 1);
 
 class drink {
+    
     private $data;
-    
-    
     
     public function getName() {
         return $this->data['name'];
@@ -15,11 +14,11 @@ class drink {
         $this->data['name'] = $name;
     }
     
-    public function getAmount_ml() {
+    public function getAmount() {
         return $this->data['amount_ml'];
     }
     
-    public function setAmount_ml(int $amount_ml) {
+    public function setAmount(int $amount_ml) {
         $this->data['amount_ml'] = $amount_ml;
     }
     
