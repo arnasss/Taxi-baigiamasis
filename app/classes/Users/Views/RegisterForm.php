@@ -12,37 +12,40 @@ class RegisterForm extends \Core\Views\Form {
             ],
             'fields' => [
                 'name' => [
-                    'label' => 'Name',
+                    'label' => 'Name*',
                     'type' => 'text',
                     'extra' => [
                         'validators' => [
                             'validate_not_empty',
                             'validate_not_longer',
+                            'validate_no_numbers'
                         ]
                     ],
                 ],
                 'surname' => [
-                    'label' => 'Surname',
+                    'label' => 'Surname*',
                     'type' => 'text',
                     'extra' => [
                         'validators' => [
                             'validate_not_empty',
-                            'validate_not_longer'
+                            'validate_not_longer',
+                            'validate_no_numbers'
                         ]
                     ],
                 ],
                 'email' => [
-                    'label' => 'Email',
+                    'label' => 'Email*',
                     'type' => 'email',
                     'extra' => [
                         'validators' => [
                             'validate_not_empty',
                             'validate_mail',
+                            'validate_is_email'
                         ]
                     ],
                 ],
                 'password' => [
-                    'label' => 'Password',
+                    'label' => 'Password*',
                     'type' => 'password',
                     'extra' => [
                         'validators' => [
@@ -51,7 +54,7 @@ class RegisterForm extends \Core\Views\Form {
                     ],
                 ],
                 'password_repeat' => [
-                    'label' => 'Password repeat',
+                    'label' => 'Password repeat*',
                     'type' => 'password',
                     'extra' => [
                         'validators' => [
