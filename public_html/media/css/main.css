@@ -1,0 +1,56 @@
+.bg_image {
+    background-image: url(../foto/bg_img.jpeg);
+    height: 300px;
+    width: 100%;
+    background-size: cover;
+}
+
+.container {
+    max-width: 800px;
+/*    height: 400px;*/
+    margin: 20px auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
+.card {
+    width: 25%;
+    height: 300px;
+    border: 1px solid gray;
+    margin: auto;
+}
+
+.img_sizes {
+    height: 40%;
+    width: 100%;
+    background-size: cover;
+}
+
+.img_taxi {
+    background-image: url(../foto/img_taxi.jpg)
+}
+
+.img_creditcard {
+    background-image: url(../foto/img_creditcard.jpg);  
+}
+
+.img_rent {
+    background-image: url(../foto/img_rent.jpg);
+}
+
+.card_head {
+    text-align: center;
+    margin: 10px 0;
+    padding: 0 5px;
+}
+.card_text {
+    padding: 0 5px;
+    text-align: center;
+}
+
+iframe {
+    width: 100%;
+    height: 300px;
+}

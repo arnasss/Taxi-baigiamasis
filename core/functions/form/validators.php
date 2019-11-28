@@ -1,67 +1,44 @@
 <?php
 
-function validate_not_empty($field_input, &$field) {
-    if ($field_input === '') {
-        $field['error'] = 'Laukas negali būti tuščias!';
-		return false;
+function validate_fields_match($filtered_input, &$form, $params) {
+    $match = true;
+
+    foreach ($params as $field_id) {
+        $ref_value = $ref_value ?? $filtered_input[$field_id];
+        if ($ref_value != $filtered_input[$field_id]) {
+            $match = false;
+            break;
+        }
     }
-	
-	return true;
+    
+    if (!$match) {
+        $form['fields'][$field_id]['error'] = 'Laukai nesutampa!';
+        return false;
+    }
+
+    return true;
 }
 
-function validate_is_number($field_input, &$field) {
-    if (!is_numeric($field_input)) {
+function validate_not_empty($field_value, &$field) {
+    if (strlen($field_value) == 0) {
+        $field['error'] = 'Laukas negali būti tuščias';
+    } else {
+        return true;
+    }
+}
+
+function validate_is_number($field_value, &$field) {
+    if (!is_numeric($field_value)) {
         $field['error'] = 'Įveskite skaičių!';
-		return false;
+    } else {
+        return true;
     }
-	
-	return true;
 }
 
-function validate_max_100($field_input, &$field) {
-    if ($field_input > 100) {
-        $field['error'] = 'Per daug metų!';
-		return false;
+function validate_is_positive($field_value, &$field) {
+    if ($field_value < 0) {
+        $field['error'] = 'Įveskite teigiamą skaičių.';
+    } else {
+        return true;
     }
-	
-	return true;
-}
-
-function validate_is_positive($field_input, &$field) {
-    if ($field_input < 0) {
-        $field['error'] = 'Įveskite teigiamą skaičių!';
-		return false;
-    }
-	
-	return true;
-}
-
-function validate_password($field_input, &$field) {
-    if (strlen($field_input) < 8) {
-        $field['error'] = 'Įveskite daugiau nei 8 simbolius!';
-		return false;
-    }
-	
-	return true;
-}
-
-/**
- * 
- * @param array $filtered_input
- * @param array $form
- * @param array $params
- * @return bool
- */
-function validate_fields_match(array $filtered_input, array &$form, array $params): bool {
-	foreach ($params as $field_id) {
-		$reference_value = $reference_value ?? $filtered_input[$field_id];
-
-		if ($reference_value !== $filtered_input[$field_id]) {
-			$form['fields'][$field_id]['error'] = 'Laukeliai nesutampa';
-			
-			return false;
-		}
-	}
-
-	return true;
 }

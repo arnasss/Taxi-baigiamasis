@@ -4,88 +4,92 @@ namespace App\Users;
 
 class User {
 
-	private $data = [];
+    private $data = [];
 
-	public function __construct($data = null) {
-		if ($data) {
-			$this->setData($data);
-		} else {
-			$this->data = [
-				'email' => null,
-				'name' => null,
-				'password' => null
-			];
-		}
-	}
+    public function __construct($data = null) {
+        if ($data) {
+            $this->setData($data);
+        } else {
+            $this->data = [
+                'id' => null,
+                'name' => null,
+                'surname' => null,
+                'password' => null,
+                'email' => null,
+                'phone_number' => null
+            ];
+        }
+    }
 
-	/**
-	 * Sets all data from array
-	 * @param array $array
-	 */
-	public function setData(?array $array) {
-		$this->setEmail($array['email'] ?? null);
-		$this->setName($array['name'] ?? null);
-		$this->setPassword($array['password'] ?? null);
-	}
+    public function setData($array) {
+        if (isset($array['id'])) {
+            $this->setId($array['id']);
+        } else {
+            $this->data['id'] = null;
+        }
 
-	/**
-	 * Gets all data as array
-	 * @return array
-	 */
-	public function getData(): array {
-		return [
-			'name' => $this->getName(),
-			'email' => $this->getEmail(),
-			'password' => $this->getPassword()
-		];
-	}
+        $this->setEmail($array['email'] ?? null);
+        $this->setSurname($array['surname'] ?? null);
+        $this->setPassword($array['password'] ?? null);
+        $this->setName($array['name'] ?? null);
+        $this->setPhone_number($array['phone_number'] ?? null);
+    }
 
-	/**
-	 * Set email
-	 * @param string $email
-	 */
-	public function setEmail(?string $email) {
-		$this->data['email'] = $email;
-	}
+    public function getData() {
+        return [
+            'id' => $this->getId(),
+            'email' => $this->getEmail(),
+            'password' => $this->getPassword(),
+            'name' => $this->getName(),
+            'surname' => $this->getSurname(),
+            'phone_number' => $this->getPhone_number(),
+        ];
+    }
 
-	/**
-	 * Set name
-	 * @param string $name
-	 */
-	public function setName(?string $name) {
-		$this->data['name'] = $name;
-	}
+    public function setId(int $id) {
+        $this->data['id'] = $id;
+    }
 
-	/**
-	 * Set password
-	 * @param string $password
-	 */
-	public function setPassword(?string $password) {
-		$this->data['password'] = $password;
-	}
+    public function getId() {
+        return $this->data['id'];
+    }
 
-	/**
-	 * Returns email
-	 * @return string|null
-	 */
-	public function getEmail(): ?string {
-		return $this->data['email'];
-	}
+    public function setEmail(String $email) {
+        $this->data['email'] = $email;
+    }
 
-	/**
-	 * Returns name
-	 * @return string|null
-	 */
-	public function getName(): ?string {
-		return $this->data['name'];
-	}
+    public function getEmail() {
+        return $this->data['email'];
+    }
+    
+    public function setPassword(String $password) {
+        $this->data['password'] = $password;
+    }
+    public function getPassword() {
+        return $this->data['password'];
+    }
 
-	/**
-	 * Returns password
-	 * @return string|null
-	 */
-	public function getPassword(): ?string {
-		return $this->data['password'];
-	}
-
+    public function setName(string $name) {
+        $this->data['name'] = $name;
+    }
+    
+    public function getName() {
+        return $this->data['name'];
+    }
+    
+    public function setSurname( $surname) {
+        $this->data['surname'] = $surname;
+    }
+    
+    public function getSurname() {
+        return $this->data['surname'];
+    }
+    
+    public function setPhone_number(string $number) {
+        $this->data['phone_number'] = $number;
+    }
+    
+    public function getPhone_number() {
+        return $this->data['phone_number'];
+    }
 }

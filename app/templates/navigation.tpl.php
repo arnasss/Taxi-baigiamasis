@@ -1,12 +1,17 @@
 <?php if (isset($data) && !empty($data)): ?>
-<nav class="bg-brown">
-    <div class="wrapper">
-        <a href="<?php ?>"><img src="<?php print $data['image']?>" alt="logo"</a>
-        <ul>
-            <?php foreach ($data['links'] as $link): ?>
-            <li><a class="text-white" href="<?php print $link['url']; ?>"><?php print $link['title']; ?></a></li>
+    <div class="wrapper nav-flex">
+        <nav>
+            <?php foreach ($data as $section_id => $section): ?>
+                <div class="<?php print $section_id; ?>">
+                    <?php foreach ($section as $nav_id => $link): ?>
+                        <div class="link-wrapper <?php print ($link['active'] ?? false) ? 'active' : ''; ?>">
+                            <a href="<?php print $link['url']; ?>">
+                                <?php print $link['title']; ?>
+                            </a>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
             <?php endforeach; ?>
-        </ul>
+        </nav>
     </div>
-</nav>
 <?php endif; ?>

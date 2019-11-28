@@ -1,0 +1,10 @@
+@media only screen and (max-width: 400px) {
+    .bg_image{
+        height: 150px;
+    }
+    .card{
+        display: inline-block;
+        width: 75%;
+        margin: 10px auto;
+    }
+}
