@@ -30,18 +30,18 @@ $footer = new \App\Views\Footer();
         <section class="container">
             <div class="card">
                 <div class="img_taxi img_sizes"></div>
-                <h4 class="card_head">Taxi paslaugos</h4>
-                <p class="card_text">Greitas atvykimas visoja Lietuvoja</p>
+                <h4 class="card_head text_black">Taxi paslaugos</h4>
+                <p class="card_text text_black">Greitas atvykimas visoja Lietuvoja</p>
             </div>
             <div class="card">
                 <div class="img_creditcard img_sizes"></div>
-                <h4 class="card_head">Patogus atsiskaitimas</h4>
-                <p class="card_text">Visas musu teikiamas paslaugas galite apmoketi banko kortele</p>
+                <h4 class="card_head text_black">Patogus atsiskaitimas</h4>
+                <p class="card_text text_black">Visas musu teikiamas paslaugas galite apmoketi banko kortele</p>
             </div>
             <div class="card">
                 <div class="img_rent img_sizes"></div>
-                <h4 class="card_head">Automobiliu nuoma</h4>
-                <p class="card_text">Taipogi teikiame automobiliu nuomos paslaugas</p>
+                <h4 class="card_head text_black">Automobiliu nuoma</h4>
+                <p class="card_text text_black">Taipogi teikiame automobiliu nuomos paslaugas</p>
             </div>
         </section>
 
